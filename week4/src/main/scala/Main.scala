@@ -86,7 +86,7 @@ object PaddingOracleAttack {
     require(15 - position == knownEnding.length)
     var sucPos = -1
     val next = (0 to 255) indexWhere { g =>
-      //Thread.sleep(100) // let's play nice
+      Thread.sleep(100) // let's play nice
       attackBlockAtPositionWithGuess(block, position, g.asInstanceOf[Byte] :: knownEnding) match {
         case _: Successful =>
           sucPos = g
